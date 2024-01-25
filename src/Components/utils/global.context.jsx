@@ -1,15 +1,30 @@
-import { createContext } from "react";
+import React, { createContext, useMemo, useCallback } from "react";
 
-export const initialState = {theme: "", data: []}
+export const initialState = { theme: "", data: [] };
 
 export const ContextGlobal = createContext(undefined);
 
 export const ContextProvider = ({ children }) => {
-  //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
+  const [state, setState] = React.useState(initialState);
+
+  const toggleTheme = useCallback(() => {
+    setState((prev) => ({ ...prev, theme: prev.theme === "light" ? "dark" : "light" }));
+  }, []);
+
+  const addToFavorites = useCallback((dentist) => {
+    setState((prev) => ({ ...prev, data: [...prev.data, dentist] }));
+  }, []);
+
+  const contextValue = useMemo(() => ({ state, toggleTheme, addToFavorites }), [
+    state,
+    toggleTheme,
+    addToFavorites,
+  ]);
 
   return (
-    <ContextGlobal.Provider value={{}}>
+    <ContextGlobal.Provider value={contextValue}>
       {children}
     </ContextGlobal.Provider>
   );
 };
+

@@ -11,20 +11,20 @@ const Form = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    alert(`Gracias ${data.name}, te contactaremos cuando antes vía mail`);
+    alert(`Thank you ${data.name}! We'll contact you via email as soon as possible`);
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="name">Nombre completo:</label>
+          <label htmlFor="name"> Full Name:</label>
           <input
             {...register("name", {
-              required: "Este campo es requerido",
+              required: "*This field is required",
               minLength: {
                 value: 5,
-                message: "El nombre debe tener al menos 5 caracteres",
+                message: "*The name needs to have at least 5 characters",
               },
             })}
           />
@@ -32,20 +32,20 @@ const Form = () => {
         </div>
 
         <div>
-          <label htmlFor="email">Correo electrónico:</label>
+          <label htmlFor="email">Email:</label>
           <input
             {...register("email", {
-              required: "Este campo es requerido",
+              required: "*This field is required",
               pattern: {
                 value: /^\S+@\S+$/i,
-                message: "Formato de correo electrónico incorrecto",
+                message: "*Incorrect email format",
               },
             })}
           />
           {errors.email && <p>{errors.email.message}</p>}
         </div>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">Send</button>
       </form>
 
       {errors._form && <p>{errors._form.message}</p>}

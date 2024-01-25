@@ -11,11 +11,13 @@ const Favorites = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Dentistas Favoritos</h1>
+    <div className="dentist-container">
+      <h1>Favorite Dentist</h1>
+      <div className="card-grid" > 
       {favoriteDentists.map((dentist) => (
-        <Card key={dentist.id} dentist={dentist} />
+        < Card key={dentist.id} dentist={dentist} />
       ))}
+      </div>
     </div>
   );
 };

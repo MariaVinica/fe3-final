@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../Components/Card';
+import '../index.css';
 
 const Home = () => {
   const [dentists, setDentists] = useState([]);
@@ -18,7 +19,6 @@ const Home = () => {
   }, []);
 
   const addToFavorites = (dentist) => {
-   
     const isAlreadyFavorite = favoriteDentists.some((favDentist) => favDentist.id === dentist.id);
 
     if (!isAlreadyFavorite) {
@@ -28,9 +28,9 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Listado de Dentistas</h1>
-      <div>
+    <div className="dentists-container">
+      <h1>Find a Dentist</h1>
+      <div className="card-grid">
         {dentists.map((dentist) => (
           <Card key={dentist.id} dentist={dentist} addToFavorites={() => addToFavorites(dentist)} />
         ))}

@@ -1,5 +1,7 @@
+
 body {
   margin: 0;
+  padding: 0.5em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,24 +13,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
-}
+
 
 h1{
   text-align: center;
+  padding: 15px;
 }
 
-nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
+h2{
+  text-align: center;
 }
+
+
+.profile{
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+.logo img {
+  width: 5%;
+  height: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: left;
+  padding: 5px;
+  margin-left: 13rem;
+}
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #EDEDF4;
+ }
+
+.navbar-list {
+  height: 25%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float: right;
+  margin-right: 11rem;
+}
+
+.navbar-list li {
+  margin-right: 2rem; 
+}
+
+.navbar-list button img {
+  width: 30px; 
+  align-items: center;
+  margin-right: 2rem; 
+  border-radius: 8px;
+}
+
+.navbar-list button img:hover {
+  background-color: #0f172a;
+}
+
+.navbar-list button {
+  border: none; 
+}
+
 
 a{
   color: #000;
@@ -40,58 +88,135 @@ a:hover{
   color: rgb(136, 136, 136);
 } 
 
+
 footer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: 2rem;
   position: relative;
   bottom: 0;
   width: 90%;
-  height: 40px;
   margin-top: 2rem;
 }
 
-footer > img{
-  width: 200px;
-  margin: 0;
+.footer-content {
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
+
+
+.footer-divider {
+  height: 25px;
+  width: 100%;
+  background-color: #e3193d;
+  margin-top: 10px;
+}
+
+.dh-logo {
+  width: 150px;
+  height: auto;
+  margin-right: 10px; 
+  justify-content: left;
+}
+
+.social-icon {
+  width: 40px;
+  height: auto;
+  margin-right: 10px; 
+  cursor: pointer;
 }
 
 form{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 5px;
   width: 300px;
-  height: 100px;
-  margin: 0 auto;
+  height: 80px;
+  margin: 10px auto;
+  background-color: #BFBFBF;
+  padding: 80px;
 }
 
-.card{
+form p {
+  color: red;
+  margin-top: 5px; 
+  margin-bottom: 0; 
+}
+
+input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.card {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: right;
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 1rem; 
+  border: 0.5px solid rgb(179, 179, 179);
+  font-size: 11px;
+  border-radius: 5px;
+}
+
+.card:hover {
+  border: 0.5px solid rgb(0, 178, 217);
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; 
+}
+
+.card button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+
+.card button:hover {
+  background-color: #00b2d9;
+}
+
+.dentists-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+  justify-content: center;
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
-}
-
-.card-grid{
-  display: flex;
-  justify-content: space-evenly;
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
+  max-width: 1200px; 
   margin: 0 auto;
+}
+
+.contact-container p {
+  text-align: center;
 }
 
 table {
@@ -100,23 +225,30 @@ table {
     width: 100%;
     display: table;
     border: 1px solid #ccc;
-
-}
+  }
+  
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
-  padding: 8px;
+  padding: 8px; 
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.dark{
-  background-color: #12121296;
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #0d1a26;
   color: white;
 }
-.dark > a {
-  color: white;
+
+.dark a {
+  color: grey;
 }
+
